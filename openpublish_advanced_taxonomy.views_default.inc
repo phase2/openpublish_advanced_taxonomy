@@ -34,49 +34,24 @@ function openpublish_advanced_taxonomy_views_default_views() {
   $handler->display->display_options['fields']['search_api_language']['id'] = 'search_api_language';
   $handler->display->display_options['fields']['search_api_language']['table'] = 'search_api_index_openpublish_node_index';
   $handler->display->display_options['fields']['search_api_language']['field'] = 'search_api_language';
-  /* Contextual filter: Node: Blog */
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['id'] = 'field_op_blogpost_blog';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['table'] = 'search_api_index_openpublish_node_index';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['field'] = 'field_op_blogpost_blog';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['summary']['format'] = 'default_summary';
-
-  /* Display: Blog */
-  $handler = $view->new_display('block', 'Blog', 'block_1');
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Node: Blog */
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['id'] = 'field_op_blogpost_blog';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['table'] = 'search_api_index_openpublish_node_index';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['field'] = 'field_op_blogpost_blog';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_argument_options']['term_page'] = 1;
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_argument_options']['node'] = 0;
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_argument_options']['limit'] = 0;
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_argument_options']['vocabularies'] = array(
+  /* Contextual filter: Node: Taxonomy Terms Tid */
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['id'] = 'search_api_node_taxonomy_list_tid';
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['table'] = 'search_api_index_openpublish_node_index';
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['field'] = 'search_api_node_taxonomy_list_tid';
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['default_argument_options']['term_page'] = 1;
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['default_argument_options']['node'] = 0;
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['default_argument_options']['limit'] = 0;
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['default_argument_options']['vocabularies'] = array(
     'blog' => 0,
+    'sections' => 0,
   );
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['field_op_blogpost_blog']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['search_api_node_taxonomy_list_tid']['summary']['format'] = 'default_summary';
 
-  /* Display: Topic */
-  $handler = $view->new_display('block', 'Topic', 'block_2');
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Node: Topic */
-  $handler->display->display_options['arguments']['field_topic']['id'] = 'field_topic';
-  $handler->display->display_options['arguments']['field_topic']['table'] = 'search_api_index_openpublish_node_index';
-  $handler->display->display_options['arguments']['field_topic']['field'] = 'field_topic';
-  $handler->display->display_options['arguments']['field_topic']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_topic']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_topic']['default_argument_options']['term_page'] = 1;
-  $handler->display->display_options['arguments']['field_topic']['default_argument_options']['node'] = 0;
-  $handler->display->display_options['arguments']['field_topic']['default_argument_options']['limit'] = 0;
-  $handler->display->display_options['arguments']['field_topic']['default_argument_options']['vocabularies'] = array(
-    'blog' => 0,
-    'topic' => 0,
-  );
-  $handler->display->display_options['arguments']['field_topic']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['field_topic']['summary']['format'] = 'default_summary';
+  /* Display: General */
+  $handler = $view->new_display('block', 'General', 'block_1');
   $export['openpublish_advanced_taxonomy'] = $view;
 
   return $export;
