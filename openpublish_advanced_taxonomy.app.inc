@@ -44,15 +44,9 @@ function openpublish_advanced_taxonomy_configure($form, $form_state) {
 }
 function openpublish_advanced_taxonomy_configure_submit($form, $form_state) {
   if($form_state['values']['enable']) {
-    variable_set('taxonomy_view_mode_any', 'full');
-    ctools_include("export");
-    ctools_export_set_status('context', 'openpublish_advanced_taxonomy_default_facets', FALSE);
-    context_invalidate_cache();
+    openpublish_advanced_taxonomy_enable();
   }
   else {
-    variable_del('taxonomy_view_mode_any');
-    ctools_include("export");
-    ctools_export_set_status('context', 'openpublish_advanced_taxonomy_default_facets', TRUE);
-    context_invalidate_cache();
+    openpublish_advanced_taxonomy_disable();
   }
 }

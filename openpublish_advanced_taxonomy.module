@@ -11,3 +11,15 @@ function openpublish_advanced_taxonomy_alter(&$export) {
     'blog' => 'blog',
   );
 }
+function openpublish_advanced_taxonomy_enable() {
+  variable_set('taxonomy_view_mode_any', 'full');
+  ctools_include("export");
+  ctools_export_set_status('context', 'openpublish_advanced_taxonomy_default_facets', FALSE);
+  context_invalidate_cache();
+}
+function openpublish_advanced_taxonomy_disable() {
+  variable_del('taxonomy_view_mode_any');
+  ctools_include("export");
+  ctools_export_set_status('context', 'openpublish_advanced_taxonomy_default_facets', TRUE);
+  context_invalidate_cache();
+}
