@@ -1,4 +1,5 @@
-
+core = 7.x
+api = 2
 
 projects[search_api][version] = 1.0-beta10
 projects[search_api][subdir] = apps
